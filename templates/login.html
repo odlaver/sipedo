@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-center mb-6 text-slate-700">
+    Masuk ke SIPEDO
+  </h2>
+
+  <form method="POST" class="space-y-4">
+    <input
+      name="email"
+      type="email"
+      placeholder="Email"
+      class="w-full p-3 border rounded"
+      required
+    />
+
+    <input
+      name="kata_sandi"
+      type="password"
+      placeholder="Kata Sandi"
+      class="w-full p-3 border rounded"
+      required
+    />
+
+    <button
+      class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold p-3 rounded"
+    >
+      Login
+    </button>
+  </form>
+
+  <p class="mt-4 text-center text-sm">
+    Belum punya akun?
+    <a href="/register" class="text-slate-600 hover:underline">Registrasi</a>
+  </p>
+</div>
+
+{% endblock %}
