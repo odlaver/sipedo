@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{ title or "SIPEDO" }}</title>
+  </head>
+  <body class="relative min-h-screen text-gray-800">
+    <div
+      class="fixed inset-0 bg-cover bg-center bg-no-repeat"
+      style="background-image: url('/static/bg.png')"
+    ></div>
+    <div class="fixed inset-0 backdrop-blur-sm"></div>
+
+    <div class="absolute inset-0 bg-white bg-opacity-80"></div>
+
+    <div class="relative z-10">
+      <nav class="bg-white shadow-sm py-4 mb-8">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+          <a
+            href="{{ url_for('dashboard') }}"
+            class="text-xl font-extrabold text-slate-700 hover:text-slate-900"
+          >
+            SIPEDO
+          </a>
+
+          {% if session.get("login") %}
+          <div class="flex items-center space-x-6 text-sm font-semibold">
+            <a
+              href="{{ url_for('dashboard') }}"
+              class="inline-block {% if title=='Dashboard' %}text-slate-900 font-semibold border-b-2 border-slate-900 pb-1{% else %}text-slate-700 hover:text-slate-900{% endif %}"
+            >
+              Dashboard
+            </a>
+            <a
+              href="{{ url_for('tambah_donasi') }}"
+              class="inline-block {% if title=='Tambah Donasi' %}text-slate-900 font-semibold border-b-2 border-slate-900 pb-1{% else %}text-slate-700 hover:text-slate-900{% endif %}"
+            >
+              Tambah Donasi
+            </a>
+            <a
+              href="{{ url_for('ranking_charity') }}"
+              class="inline-block {% if title=='Ranking Charity' %}text-slate-900 font-semibold border-b-2 border-slate-900 pb-1{% else %}text-slate-700 hover:text-slate-900{% endif %}"
+            >
+              Ranking Charity
+            </a>
+            <a
+              href="{{ url_for('progress_charity') }}"
+              class="inline-block {% if title=='Progress Charity' %}text-slate-900 font-semibold border-b-2 border-slate-900 pb-1{% else %}text-slate-700 hover:text-slate-900{% endif %}"
+            >
+              Progress Charity
+            </a>
+            <a
+              href="{{ url_for('top_donatur') }}"
+              class="inline-block {% if title=='Top Donatur' %}text-slate-900 font-semibold border-b-2 border-slate-900 pb-1{% else %}text-slate-700 hover:text-slate-900{% endif %}"
+            >
+              Top Donatur
+            </a>
+          </div>
+
+          <a
+            href="{{ url_for('logout') }}"
+            class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded-lg shadow"
+          >
+            Logout
+          </a>
+          {% endif %}
+        </div>
+      </nav>
+
+      {% if get_flashed_messages() %}
+      <div
+        id="alertBox"
+        class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
+      >
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg text-center">
+          <p class="text-gray-700">{{ get_flashed_messages()[0] }}</p>
+          <button
+            onclick="document.getElementById('alertBox').remove()"
+            class="mt-4 px-5 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="container mx-auto px-6 pb-10">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="hidden fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-4 py-2 rounded-full shadow-lg hover:bg-slate-800 transition"
+    >
+      Top
+    </button>
+
+    <script>
+      const topBtn = document.getElementById("scrollTopBtn");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) topBtn.classList.remove("hidden");
+        else topBtn.classList.add("hidden");
+      });
+
+      topBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>
