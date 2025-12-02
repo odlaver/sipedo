@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{{ title or "SIPEDO" }}</title>
+  </head>
+
+  <body class="relative min-h-screen text-gray-800">
+    <div
+      class="fixed inset-0 bg-cover bg-center bg-no-repeat"
+      style="background-image: url('/static/bg.png')"
+    ></div>
+    <div class="fixed inset-0 backdrop-blur-sm"></div>
+
+    <div class="absolute inset-0 bg-white bg-opacity-60"></div>
+    <div class="fixed inset-0 backdrop-blur-sm"></div>
+    <nav
+      class="absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center z-20"
+    ></nav>
+    </nav>
+    <div
+      class="relative z-10 flex flex-col items-center justify-center h-screen text-center px-6"
+    >
+        <h1 class="text-5xl font-extrabold drop-shadow text-slate-900">
+          Selamat Datang di SIPEDO
+        </h1>
+
+        <p class="mt-4 text-lg text-center text-gray-800">
+            Sistem Pengelolaan Donasi yang dirancang untuk
+          memudahkan pengelolaan dan pelacakan donasi secara efisien dan
+          transparan.
+        </p>
+
+        <button
+          onclick="location.href='/login'"
+          class="mt-7 px-10 py-3 text-lg font-semibold bg-white transition rounded-xl backdrop-blur-md"
+        >
+          Mulai Sekarang
+        </button>
+      </div>
+    </div>
+    <footer
+      class="absolute bottom-4 left-0 w-full text-center text-white/70 text-sm"
+    >
+      © 2025 SIPEDO • Sistem Pengelolaan Donasi
+    </footer>
+  </body>
+</html>
 
