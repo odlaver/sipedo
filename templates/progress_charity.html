@@ -1,0 +1,55 @@
+  {% extends "base.html" %} {% block content %}
+
+  <h2 class="text-2xl font-semibold mb-6 text-slate-700">Progress Charity</h2>
+  <form method="GET" class="flex flex-wrap gap-4 mb-6">
+    <select name="limit" class="px-4 py-2 border rounded">
+      <option value="10" {% if limit == "10" %}selected{% endif %}>10 data</option>
+      <option value="50" {% if limit == "50" %}selected{% endif %}>50 data</option>
+      <option value="100" {% if limit == "100" %}selected{% endif %}>100 data</option>
+      <option value="9999" {% if limit == "9999" %}selected{% endif %}>Semua</option>
+    </select>
+    <select name="filter" class="px-4 py-2 border rounded">
+      <option value="" {% if filter_value == "" %}selected{% endif %}>Semua Progress</option>
+      <option value="low" {% if filter_value == "low" %}selected{% endif %}>≤ 50%</option>
+      <option value="mid" {% if filter_value == "mid" %}selected{% endif %}>50% – 100%</option>
+      <option value="high" {% if filter_value == "high" %}selected{% endif %}>≥ 100%</option>
+    </select>
+    <button class="bg-slate-700 text-white px-4 py-2 rounded hover:bg-slate-800">
+      Filter
+    </button>
+  </form>
+  <table class="w-full border-collapse border border-gray-300 shadow mb-10">
+    <thead class="bg-slate-700 text-white">
+      <tr>
+        <th class="border p-3 text-left">Charity</th>
+        <th class="border p-3 text-left">Target</th>
+        <th class="border p-3 text-left">Terkumpul</th>
+        <th class="border p-3 text-left">Progress</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white bg-opacity-60">
+      {% for p in data %}
+      <tr class="hover:bg-slate-200 transition">
+        <td class="border p-3">{{ p.nama_charity }}</td>
+        <td class="border p-3">
+          Rp {{ "{:,.0f}".format(p.target_dana) }}
+        </td>
+        <td class="border p-3">
+          Rp {{ "{:,.0f}".format(p.total_terkumpul) }}
+        </td>
+        <td class="border p-3">
+          <div class="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden mb-1">
+            <div
+              class="bg-slate-600 h-2.5 rounded-full"
+              style="width: {{ p.persen_progress if p.persen_progress <= 100 else 100 }}%;"
+            ></div>
+          </div>
+          <span>{{ p.persen_progress|round(2) }}%</span>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+  {% endblock %}
