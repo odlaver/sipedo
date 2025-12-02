@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-center mb-6 text-slate-700">
+    Registrasi Donatur
+  </h2>
+
+  <form method="POST" class="space-y-4">
+    <input
+      name="nama"
+      class="w-full p-3 border rounded"
+      placeholder="Nama Lengkap"
+      required
+    />
+    <input
+      name="email"
+      type="email"
+      class="w-full p-3 border rounded"
+      placeholder="Email"
+      required
+    />
+    <input
+      name="kata_sandi"
+      type="password"
+      class="w-full p-3 border rounded"
+      placeholder="Kata Sandi"
+      required
+    />
+    <input
+      name="nomor_hp"
+      class="w-full p-3 border rounded"
+      placeholder="Nomor HP"
+    />
+    <input
+      name="alamat"
+      class="w-full p-3 border rounded"
+      placeholder="Alamat"
+    />
+
+    <button
+      class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold p-3 rounded"
+    >
+      Daftar
+    </button>
+  </form>
+
+  <p class="mt-4 text-center text-sm">
+    Sudah punya akun?
+    <a href="/login" class="text-slate-600 hover:underline">Login</a>
+  </p>
+</div>
+
+{% endblock %}
