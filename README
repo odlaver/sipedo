@@ -1,0 +1,43 @@
+Tugas Akhir Mata Kuliah Sistem Basis Data
+Project Web App yang Terintegrasi Database
+
+Project  : SIPEDO (Sistem Informasi Pengelolaan Donasi)
+Released : 02 December 2025
+
+Team :
+    R. Revaldo Vabiansyah
+    Tazkia Farra Saleha
+    Putri Fauziah Rahma
+    Arsya Fitria Yahdini
+    Mutiara Ratu Maulana
+
+Pendahuluan
+    SIPEDO (Sistem  Informasi Pengelolaan  Donasi) merupakan  sebuah  aplikasi berbasis  web 
+  yang dirancang  untuk memudahkan  proses pencatatan, pemantauan, serta  pengelolaan donasi 
+  secara terstruktur. Aplikasi ini  memungkinkan pengguna untuk melakukan registrasi donatur,
+  menambahkan donasi,  melihat  ranking charity,  memantau progress  pencapaian target  dana, 
+  hingga mengidentifikasi top donatur.
+
+Isi
+    Dalam pembangunan  SIPEDO, kami  menggunakan  berbagai  konsep dasar  dan lanjutan dalam 
+  pemrograman dan basis data. Dari sisi backend, aplikasi dikembangkan menggunakan framework 
+  Flask dengan bahasa Python. Sementara itu, sistem  basis data dirancang  menggunakan MySQL.
+  Untuk  tampilan  aplikasi dikembangkan menggunakan HTML dan TailwindCSS  untuk  memberikan 
+  tampilan yang bersih, serta integrasi Chart.js untuk  menampilkan grafik donasi  per bulan 
+  agar data lebih mudah dipahami.
+
+Penutup
+    Pengembangan SIPEDO diharapkan dapat menjdi media pembelajaran yang efektif dalam memahami 
+  implementasi  sistem basis  data  pada aplikasi nyata. Selain  memberikan  manfaat  edukatif, 
+  sistem ini juga dapat digunakan sebagai dasar untuk pengembangan aplikasi donasi yang  lebih 
+  kompleks dan profesional di masa  mendatang. Kami  berharap kritik dan  saran dapat membantu 
+  penyempurnaan  sistem  ini di tahap berikutnya.  Terima  kasih telah  meluangkan waktu untuk 
+  melihat dan mencoba aplikasi SIPEDO.
+
+
+Information Systems
+Faculty of Mathematics and Natural Science
+University of Lampung
+2025
+
+— _sipedo_
